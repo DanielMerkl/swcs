@@ -4,11 +4,7 @@ import java.util.ArrayList;
 
 public class BikeStore {
 
-    ArrayList<Bike> bikes;
-
-    public BikeStore() {
-        this.bikes = new ArrayList();
-    }
+    ArrayList<Bike> bikes = new ArrayList<>();
 
     public boolean addBike(Bike bike) {
         return this.bikes.add(bike);
