@@ -5,9 +5,9 @@ import java.util.Date;
 
 public class ImmutableCar {
 
-    private String name;
-    private Date manufactured;
-    private ArrayList previousOwners = new ArrayList();
+    private final String name;
+    private final Date manufactured;
+    private final ArrayList previousOwners = new ArrayList();
 
     public ImmutableCar(String name, Date manufactured) {
         this.name = name;
