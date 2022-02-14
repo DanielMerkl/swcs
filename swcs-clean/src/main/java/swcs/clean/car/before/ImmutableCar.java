@@ -2,12 +2,13 @@ package swcs.clean.car.before;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.List;
 
 public class ImmutableCar {
 
     private final String name;
     private final LocalDate manufactured;
-    private final ArrayList<String> previousOwners = new ArrayList<>();
+    private final List<String> previousOwners = new ArrayList<>();
 
     public ImmutableCar(String name, LocalDate manufactured) {
         this.name = name;
@@ -22,7 +23,7 @@ public class ImmutableCar {
         return this.name;
     }
 
-    public ArrayList<String> previousOwners() {
+    public List<String> previousOwners() {
         return this.previousOwners;
     }
 
