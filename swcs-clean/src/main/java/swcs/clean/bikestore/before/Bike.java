@@ -33,8 +33,7 @@ public class Bike {
     public boolean isFullSuspension() {
         return switch (this.type) {
             case MTB -> true;
-            case ROAD -> false;
-            case CITY -> false;
+            case ROAD, CITY -> false;
         };
     }
 }
