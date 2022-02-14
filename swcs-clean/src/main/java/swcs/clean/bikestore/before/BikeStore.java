@@ -14,7 +14,7 @@ public class BikeStore {
         return this.bikes.add(bike);
     }
 
-    public ArrayList findBikes(int type) {
+    public ArrayList findBikes(Bike.Type type) {
         ArrayList founds = new ArrayList();
 
         for (int i = 0; i < bikes.size(); i++) {
@@ -38,7 +38,7 @@ public class BikeStore {
         return founds;
     }
 
-    public ArrayList findBikes(float lowerLimit, float upperLimit, int type) {
+    public ArrayList findBikes(float lowerLimit, float upperLimit, Bike.Type type) {
         ArrayList founds = new ArrayList();
 
         for (int i = 0; i < bikes.size(); i++) {
