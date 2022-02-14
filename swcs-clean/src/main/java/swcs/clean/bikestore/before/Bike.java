@@ -13,9 +13,6 @@ public record Bike(
     }
 
     public boolean isFullSuspension() {
-        return switch (this.type) {
-            case MTB -> true;
-            case ROAD, CITY -> false;
-        };
+        return type == Type.MTB;
     }
 }
