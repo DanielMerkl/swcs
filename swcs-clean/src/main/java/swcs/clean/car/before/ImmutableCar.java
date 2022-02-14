@@ -7,7 +7,7 @@ public class ImmutableCar {
 
     private final String name;
     private final Date manufactured;
-    private final ArrayList previousOwners = new ArrayList();
+    private final ArrayList<String> previousOwners = new ArrayList<>();
 
     public ImmutableCar(String name, Date manufactured) {
         this.name = name;
@@ -22,7 +22,7 @@ public class ImmutableCar {
         return this.name;
     }
 
-    public ArrayList previousOwners() {
+    public ArrayList<String> previousOwners() {
         return this.previousOwners;
     }
 
