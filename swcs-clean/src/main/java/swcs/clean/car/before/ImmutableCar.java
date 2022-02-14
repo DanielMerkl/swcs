@@ -18,7 +18,7 @@ public class ImmutableCar {
         return this.manufactured;
     }
 
-    public String vin() {
+    public String name() {
         return this.name;
     }
 
