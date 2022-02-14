@@ -28,7 +28,6 @@ public class ImmutableCar {
     }
 
     public boolean addPreviousOwner(String name) {
-        name.trim();
-        return this.previousOwners.add(name);
+        return this.previousOwners.add(name.trim());
     }
 }
