@@ -24,7 +24,7 @@ public class ImmutableCar {
     }
 
     public List<String> previousOwners() {
-        return this.previousOwners;
+        return List.copyOf(this.previousOwners);
     }
 
     public boolean addPreviousOwner(String name) {
