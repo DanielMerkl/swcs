@@ -10,8 +10,8 @@ public class BikeStore {
         return this.bikes.add(bike);
     }
 
-    public ArrayList findBikes(Bike.Type type) {
-        ArrayList founds = new ArrayList();
+    public ArrayList<Bike> findBikes(Bike.Type type) {
+        ArrayList<Bike> founds = new ArrayList<>();
 
         for (int i = 0; i < bikes.size(); i++) {
             if (bikes.get(i).type() == type) {
@@ -22,8 +22,8 @@ public class BikeStore {
         return founds;
     }
 
-    public ArrayList findBikes(float lowerLimit, float upperLimit) {
-        ArrayList founds = new ArrayList();
+    public ArrayList<Bike> findBikes(float lowerLimit, float upperLimit) {
+        ArrayList<Bike> founds = new ArrayList<>();
 
         for (int i = 0; i < bikes.size(); i++) {
             if (bikes.get(i).price() >= lowerLimit && bikes.get(i).price() <= upperLimit) {
@@ -34,8 +34,8 @@ public class BikeStore {
         return founds;
     }
 
-    public ArrayList findBikes(float lowerLimit, float upperLimit, Bike.Type type) {
-        ArrayList founds = new ArrayList();
+    public ArrayList<Bike> findBikes(float lowerLimit, float upperLimit, Bike.Type type) {
+        ArrayList<Bike> founds = new ArrayList<>();
 
         for (int i = 0; i < bikes.size(); i++) {
             if ((bikes.get(i).price() >= lowerLimit && bikes.get(i).price() <= upperLimit) && bikes.get(i).type() == type) {
