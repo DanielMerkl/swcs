@@ -8,9 +8,9 @@ public class Bike {
         CITY,
     }
 
-    private Type type;
-    private float price;
-    private String manufacturer;
+    private final Type type;
+    private final float price;
+    private final String manufacturer;
 
     public Bike(String manufacturer, Type type, float price) {
         this.manufacturer = manufacturer;
