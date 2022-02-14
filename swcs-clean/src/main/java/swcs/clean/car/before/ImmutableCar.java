@@ -5,12 +5,12 @@ import java.util.Date;
 
 public class ImmutableCar {
 
-    private String vin;
+    private String name;
     private Date manufactured;
     private ArrayList previousOwners = new ArrayList();
 
-    public ImmutableCar(String number, Date manufactured) {
-        this.vin = number;
+    public ImmutableCar(String name, Date manufactured) {
+        this.name = name;
         this.manufactured = manufactured;
     }
 
@@ -19,7 +19,7 @@ public class ImmutableCar {
     }
 
     public String vin() {
-        return this.vin;
+        return this.name;
     }
 
     public ArrayList previousOwners() {
