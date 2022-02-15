@@ -2,6 +2,7 @@ package swcs.clean.bikestore.before;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Predicate;
 
 public class BikeStore {
 
@@ -29,6 +30,12 @@ public class BikeStore {
                 .filter(bike -> bike.type() == type)
                 .filter(bike -> bike.price() >= lowerLimit)
                 .filter(bike -> bike.price() <= upperLimit)
+                .toList();
+    }
+
+    public List<Bike> findBikes(Predicate<Bike> filter) {
+        return bikes.stream()
+                .filter(filter)
                 .toList();
     }
 
