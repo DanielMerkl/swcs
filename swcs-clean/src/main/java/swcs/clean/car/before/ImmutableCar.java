@@ -4,7 +4,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ImmutableCar {
+public final class ImmutableCar {
 
     private final String name;
     private final LocalDate manufactured;
