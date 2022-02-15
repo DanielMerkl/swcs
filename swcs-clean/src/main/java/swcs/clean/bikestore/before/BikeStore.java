@@ -6,7 +6,7 @@ import java.util.function.Predicate;
 
 public class BikeStore {
 
-    List<Bike> bikes = new ArrayList<>();
+    private final List<Bike> bikes = new ArrayList<>();
 
     public boolean addBike(Bike bike) {
         return this.bikes.add(bike);
