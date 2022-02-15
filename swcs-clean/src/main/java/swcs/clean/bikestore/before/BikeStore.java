@@ -12,27 +12,6 @@ public class BikeStore {
         return this.bikes.add(bike);
     }
 
-    public List<Bike> findBikes(Bike.Type type) {
-        return bikes.stream()
-                .filter(bike -> bike.type() == type)
-                .toList();
-    }
-
-    public List<Bike> findBikes(float lowerLimit, float upperLimit) {
-        return bikes.stream()
-                .filter(bike -> bike.price() >= lowerLimit)
-                .filter(bike -> bike.price() <= upperLimit)
-                .toList();
-    }
-
-    public List<Bike> findBikes(float lowerLimit, float upperLimit, Bike.Type type) {
-        return bikes.stream()
-                .filter(bike -> bike.type() == type)
-                .filter(bike -> bike.price() >= lowerLimit)
-                .filter(bike -> bike.price() <= upperLimit)
-                .toList();
-    }
-
     public List<Bike> findBikes(Predicate<Bike> filter) {
         return bikes.stream()
                 .filter(filter)
