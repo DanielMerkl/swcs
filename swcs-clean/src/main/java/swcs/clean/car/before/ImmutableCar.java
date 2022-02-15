@@ -4,30 +4,26 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-public final class ImmutableCar {
+public record ImmutableCar(
+        String name,
+        LocalDate manufactured,
+        List<String> previousOwners
+) {
 
-    private final String name;
-    private final LocalDate manufactured;
-    private final List<String> previousOwners = new ArrayList<>();
-
-    public ImmutableCar(String name, LocalDate manufactured) {
+    public ImmutableCar(String name, LocalDate manufactured, List<String> previousOwners) {
         this.name = name;
         this.manufactured = manufactured;
+        this.previousOwners = List.copyOf(previousOwners);
     }
 
-    public LocalDate manufactured() {
-        return this.manufactured;
+    public ImmutableCar(String name, LocalDate manufactured) {
+        this(name, manufactured, new ArrayList<>());
     }
 
-    public String name() {
-        return this.name;
+    public ImmutableCar addPreviousOwner(String name) {
+        List<String> updatedOwners = new ArrayList<>(previousOwners);
+        updatedOwners.add(name.trim());
+        return new ImmutableCar(this.name, this.manufactured, updatedOwners);
     }
 
-    public List<String> previousOwners() {
-        return List.copyOf(this.previousOwners);
-    }
-
-    public boolean addPreviousOwner(String name) {
-        return this.previousOwners.add(name.trim());
-    }
 }
