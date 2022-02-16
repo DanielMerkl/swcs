@@ -2,7 +2,7 @@ package swcs.authentication.before;
 
 public class DatabaseAuthenticationProvider {
 
-    public boolean authenticate(User user) {
+    public boolean authenticate(Identifiable identifiable) {
         // logic
         return true;
     }
