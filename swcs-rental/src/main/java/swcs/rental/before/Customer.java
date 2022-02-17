@@ -8,8 +8,8 @@ final class Customer {
     private final String name;
 
 
-    public void addRental(Rental arg) {
-        this.rentals.add(arg);
+    public void addRental(Rental rental) {
+        this.rentals.add(rental);
     }
 
     public Customer(String name) {
