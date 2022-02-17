@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 final class Customer {
-    private final List<Rental> rentals = new ArrayList<>();
-    private final String name;
 
+    private final String name;
+    private final List<Rental> rentals = new ArrayList<>();
 
     public void addRental(Rental rental) {
         this.rentals.add(rental);
@@ -20,36 +20,19 @@ final class Customer {
         return this.name;
     }
 
+    private double totalAmount() {
+        return rentals.stream()
+                .mapToDouble(Rental::price)
+                .sum();
+    }
+
     public void statement() {
-        double totalAmount = 0;
+        System.out.println("Rental Record for " + name());
 
-        String result = "Rental Record for " + name() + "\n";
-        for (Rental rental : rentals) {
-            double thisAmount = 0;
+        rentals.stream()
+                .map(rental -> "\t%s\t%s".formatted(rental.movie().title(), rental.price()))
+                .forEach(System.out::println);
 
-            // determine amounts for each line
-            switch (rental.movie()
-                    .priceCode()) {
-                case Movie.CHILDREN:
-                    thisAmount += rental.daysRented();
-
-                    break;
-                case Movie.REGULAR:
-                    thisAmount += rental.daysRented() * 2;
-
-                    break;
-                case Movie.NEW_RELEASE:
-                    thisAmount += rental.daysRented() * 3;
-                    break;
-
-            }
-            // show figures for this rental
-            result += "\t" + rental.movie().title() + "\t" + thisAmount + "\n";
-            totalAmount += thisAmount;
-        }
-        // add footer lines
-        result += "Amount owed is " + totalAmount + "\n";
-
-        System.out.println(result);
+        System.out.println("Amount owed is " + this.totalAmount());
     }
 }

@@ -1,25 +1,20 @@
 package swcs.rental.before;
 
-public class Movie {
+public record Movie(String title, Type type) {
 
-    public static final int CHILDREN = 2;
-    public static final int REGULAR = 0;
-    public static final int NEW_RELEASE = 1;
+    enum Type {
+        CHILDREN(2, 1),
+        REGULAR(0, 2),
+        NEW_RELEASE(1, 3),
+        ;
 
-    private String title;
-    private int priceCode;
+        final int id;
+        final int priceMultiplier;
 
-    public Movie(String title, int priceCode) {
-        this.title = title;
-        this.priceCode = priceCode;
-    }
-
-    public String title() {
-        return this.title;
-    }
-
-    public int priceCode() {
-        return this.priceCode;
+        Type(int id, int priceMultiplier) {
+            this.id = id;
+            this.priceMultiplier = priceMultiplier;
+        }
     }
 
 }
