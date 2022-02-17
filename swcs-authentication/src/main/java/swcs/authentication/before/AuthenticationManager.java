@@ -2,9 +2,9 @@ package swcs.authentication.before;
 
 public class AuthenticationManager {
 
-    private final DatabaseAuthenticationProvider provider;
+    private final AuthenticationProvider provider;
 
-    public AuthenticationManager(DatabaseAuthenticationProvider provider) {
+    public AuthenticationManager(AuthenticationProvider provider) {
         this.provider = provider;
     }
 
