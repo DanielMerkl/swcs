@@ -1,15 +1,15 @@
 package swcs.rental.before;
 
-import java.util.Enumeration;
-import java.util.Vector;
+import java.util.ArrayList;
+import java.util.List;
 
 class Customer {
-    private Vector rentals = new Vector();
+    private List<Rental> rentals = new ArrayList<>();
     private String name;
 
 
     public void addRental(Rental arg) {
-        this.rentals.addElement(arg);
+        this.rentals.add(arg);
     }
 
     public Customer(String name) {
@@ -23,29 +23,28 @@ class Customer {
     public void statement() {
         double totalAmount = 0;
 
-        Enumeration rentals = this.rentals.elements();
         String result = "Rental Record for " + name() + "\n";
-        while (rentals.hasMoreElements()) {
+        for (Rental rental : rentals) {
             double thisAmount = 0;
-            Rental each = (Rental) rentals.nextElement();
 
             // determine amounts for each line
-            switch (each.movie().priceCode()) {
-            case Movie.CHILDREN:
-                thisAmount += each.daysRented();
+            switch (rental.movie()
+                    .priceCode()) {
+                case Movie.CHILDREN:
+                    thisAmount += rental.daysRented();
 
-                break;
-            case Movie.REGULAR:
-                thisAmount += each.daysRented() * 2;
+                    break;
+                case Movie.REGULAR:
+                    thisAmount += rental.daysRented() * 2;
 
-                break;
-            case Movie.NEW_RELEASE:
-                thisAmount += each.daysRented() * 3;
-                break;
+                    break;
+                case Movie.NEW_RELEASE:
+                    thisAmount += rental.daysRented() * 3;
+                    break;
 
             }
             // show figures for this rental
-            result += "\t" + each.movie().title() + "\t" + thisAmount + "\n";
+            result += "\t" + rental.movie().title() + "\t" + thisAmount + "\n";
             totalAmount += thisAmount;
         }
         // add footer lines
