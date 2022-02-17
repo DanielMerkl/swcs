@@ -3,9 +3,9 @@ package swcs.rental.before;
 import java.util.ArrayList;
 import java.util.List;
 
-class Customer {
-    private List<Rental> rentals = new ArrayList<>();
-    private String name;
+final class Customer {
+    private final List<Rental> rentals = new ArrayList<>();
+    private final String name;
 
 
     public void addRental(Rental arg) {
