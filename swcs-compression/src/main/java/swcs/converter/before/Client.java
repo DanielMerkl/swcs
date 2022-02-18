@@ -5,7 +5,8 @@ import java.io.File;
 public class Client {
 
     public static void main(String[] args) {
-        File file = Converter.convert("jpg", new File("picture.tiff"));
+        Converter converter = new Converter(new File("picture.tiff"));
+        File file = converter.convert(CompressionType.JPG);
         // ...
     }
 }
